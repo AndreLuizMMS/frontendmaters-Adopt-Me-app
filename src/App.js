@@ -9,13 +9,15 @@ function App() {
   return (
     <StrictMode>
       <BrowserRouter>
-        <div id="my-app">
-          <h1>Adopt Me!</h1>
-          <Routes>
-            <Route path="details/:id" element={<Details />} />
-            <Route path="/" element={<SearchParams />} />
-          </Routes>
-        </div>
+        <Link to="/">
+          <header>
+            <Link to="/" >Adopt Me!</Link>
+          </header>
+        </Link>
+        <Routes>
+          <Route path="/details/:id" element={<Details />} />
+          <Route path="/" element={<SearchParams />} />
+        </Routes>
       </BrowserRouter>
     </StrictMode>
   );

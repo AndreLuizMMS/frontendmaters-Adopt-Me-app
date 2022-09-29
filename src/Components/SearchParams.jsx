@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import useBreedList from '../useBreedList';
+import useBreedList from '../Hooks/useBreedList';
 
 import Results from './Results';
 
@@ -25,7 +25,6 @@ function SearchParams() {
 
     setPets(json.pets);
   }
-
   return (
     <div className="search-params">
       <form
