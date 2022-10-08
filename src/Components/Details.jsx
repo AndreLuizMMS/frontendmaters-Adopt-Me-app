@@ -1,16 +1,26 @@
-import { Component } from "react";
-import { useParams } from "react-router-dom";
-import Carousel from "./Carousel";
+import { Component } from 'react';
+import { useParams } from 'react-router-dom';
+import Carousel from './Carousel';
 
 class Details extends Component {
-  state = { loading: true };
+  constructor(props) {
+    super(props);
+    this.state = { loading: true };
+  }
 
   async componentDidMount() {
     const res = await fetch(
       `http://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`
     );
     const json = await res.json();
-    this.setState(Object.assign({ loading: false }, json.pets[0]));
+
+    this.setState({ loading: false, ...json.pets[0] });
+
+    this.setState({
+      loading: false
+    });
+
+    this.setState(json.pets[0]);
   }
 
   render() {
@@ -37,7 +47,7 @@ class Details extends Component {
 
 const WrappedDetails = () => {
   const params = useParams();
+  console.log(params);
   return <Details params={params} />;
 };
-
 export default WrappedDetails;
