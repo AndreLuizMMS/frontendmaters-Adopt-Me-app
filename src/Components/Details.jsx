@@ -51,3 +51,4 @@ const WrappedDetails = () => {
   return <Details params={params} />;
 };
 export default WrappedDetails;
+//update test
