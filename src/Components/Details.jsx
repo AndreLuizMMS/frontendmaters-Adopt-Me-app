@@ -3,10 +3,7 @@ import { useParams } from 'react-router-dom';
 import Carousel from './Carousel';
 
 class Details extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { loading: true };
-  }
+  state = { loading: true };
 
   async componentDidMount() {
     const res = await fetch(
@@ -47,7 +44,6 @@ class Details extends Component {
 
 const WrappedDetails = () => {
   const params = useParams();
-  console.log(params);
   return <Details params={params} />;
 };
 export default WrappedDetails;
